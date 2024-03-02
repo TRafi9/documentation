@@ -1,0 +1,12 @@
+site_name: Talha Docs
+site_url: https://example.com/
+nav:
+  - Home: "index.md"
+  - "Kubernetes":
+      - "basic components": "/kubernetes/kubernetesComponents.md"
+      - "Ingress Controllers": "/kubernetes/kubernetesIngressControllerNotes.md"
+  - About:
+      - "License": "license.md"
+      - "Release Notes": "release-notes.md"
+# theme: material
+# pip install mkdocs-material
