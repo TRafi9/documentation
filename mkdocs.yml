@@ -3,8 +3,8 @@ site_url: https://example.com/
 nav:
   - Home: "index.md"
   - "Kubernetes":
-      - "basic components": "/kubernetes/kubernetesComponents.md"
-      - "Ingress Controllers": "/kubernetes/kubernetesIngressControllerNotes.md"
+      - "Basics": "kubernetes/setting_up_kubernetes.md"
+      - "Ingress Controllers": "kubernetes/kubernetesIngressControllerNotes.md"
   - About:
       - "License": "license.md"
       - "Release Notes": "release-notes.md"
