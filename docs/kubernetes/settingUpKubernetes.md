@@ -8,7 +8,7 @@ It is great for the following reasons:
 2. It has built in service health monitoring, restarting containers if they are unhealthy or fail, making sure you have high availability.
 3. It has built in commands to do a lot of heavy lifting that goes into application management, using `kubectl`.
 
-# Components of Kubernetes
+## Components of Kubernetes
 
 ![Cluster diagram](images/cluster_diagram.png)
 
@@ -42,7 +42,7 @@ ConfigMaps are objects used to store non-confidential variables as key : value p
 
 `kubectl -n <namespace name> get cm`
 
-### output configmaps as yaml
+### Output configmaps as yaml
 
 `kubectl -n <namespace name> get cm <configmap name> -o yaml
 
@@ -195,3 +195,60 @@ Here's how it works:
 3.The Pods can communicate with each other using the DNS name of the Service, which resolves to the internal Cluster IP address of the Service. They can use the internal Cluster IP address and exposed ports to send and receive data.
 
 Note that because services are logical abstractions, they can communicate across namespaces without any issues.
+
+## Ingress
+
+Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource. You can define an ingress API object through a yaml file.
+
+In an ingress API object you define the host that you expect traffic to be incoming from, and can define where you want to route that traffic, by defining which service you want to send it to, by giving it the name and port of the service.
+
+Example of ingress file:
+
+```
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tpm-backend-ingress
+spec:
+  rules:
+    - host: "foo-bar.com" # //hostname for the application e.g. my website, need to map domain name to node IP address 4:45 on video
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/tpm"
+            backend:
+              service:
+                name: tpm-backend
+                port:
+                  number: 8080 # this points to the service port we are exposing
+```
+
+Defining and deploying an ingress resource is not enough, we need an ingress controller to actually run the ingress resource.
+
+## Ingress Controllers
+
+Ingress controllers are used to run your ingress resource you have deployed through a yaml configuration. Controllers are not defaultly installed in your cluster, so you must install one manually, there are multiple resources to choose from, but we will keep it simple and use nginx.
+
+### deploy Nginx ingress controller through kubectl
+
+The first thing is deploying your ingress controller to manage ingress as per your ingress manifest.
+
+`kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml`
+
+The command above will create an nginx controller within its own namespace `ingress-nginx`.
+The ingress controller normally goes into its own namespace to make it easier to manage its resources and also separate its own resources so it has the capability to manage its own traffic.
+
+Even though the ingress controller is in its own namespace, by default it listens out for all the ingress resources deployed in our cluster across all namespaces.
+
+Once you have an ingress controller deployed, you can then route external network traffic to the ingress controller by routing traffic from your DNS to the ingress controllers `loadBalancer` IP address.
+
+### Get LoadBalancer IP address of ingress controller.
+
+This is the IP address you need to point external traffic to as an entry point to your cluster, i.e. you can set this IP address in the DNS settings of your cloudflare website.
+To find this IP address you can run the following command:
+
+`kubectl -n <ingress-controller-namespace> get svc`
+
+Note that this external IP address will be `pending` in the kind cluster, this is because LoadBalancer services are designed to use the load-balancer infrastructure your cloud provider offers, and since we aren't running in the cloud, there is none.
+
+This also means that when you apply your ingress manifest, there will be no address assigned, as the loadBalancer's external IP address will be the one assigned to your ingress.

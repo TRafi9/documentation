@@ -3,10 +3,11 @@ site_url: https://example.com/
 nav:
   - Home: "index.md"
   - "Kubernetes":
-      - "Basics": "kubernetes/setting_up_kubernetes.md"
-      - "Ingress Controllers": "kubernetes/kubernetesIngressControllerNotes.md"
-  - About:
+      - "Setting Up K8s": "kubernetes/settingUpKubernetes.md"
+      - "Useful Extra Commands": "kubernetes/usefulCommands.md"
+      - "Kind Commands": "kubernets/kindCommands.md"
+      - "Debugging": "debugging.md"
+  - The Productive Muslim:
       - "License": "license.md"
       - "Release Notes": "release-notes.md"
-# theme: material
-# pip install mkdocs-material
+theme: material
