@@ -1,6 +1,6 @@
 # Kind Commands
 
-kind is a tool used to run Kubernetes clusters inside Docker containers for local development and testing purposes.
+Kind is a tool used to run Kubernetes clusters inside Docker containers for local development and testing purposes.
 
 ### Get cluster names in kind
 
