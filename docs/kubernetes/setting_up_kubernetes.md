@@ -77,3 +77,121 @@ Once you have created the secret, you can then pass the secret to your deploymen
                     name: SECRET_NAME
                     key: SECRET_KEY
 ```
+
+### List all secrets
+
+`kubectl -n <namespace name> get secret`
+
+## Deployments
+
+We can use kubectl to apply our deployment manifest files. Deployment manifests are used to describe the specification of how we want to deploy our applications. e.g. what container, how much replicas we want, and the amount of resources we want to allocate to each deployment.
+
+Example of deployment manifest yaml file:
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: mycontainer
+        image: myimage:tag
+        env:
+        - name: ENV_VARIABLE_FROM_CONFIGMAP
+          valueFrom:
+            configMapKeyRef:
+              name: myconfigmap
+              key: configKey
+        - name: ENV_VARIABLE_FROM_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: secretKey
+        ports:
+            - containerPort: 8080
+                protocol: TCP
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+```
+
+### Deploy yaml deployment manifest
+
+`kubectl -n <namespace name> apply -f <deployment.yaml file>`
+
+### View deployed pods
+
+Get all pod names:
+
+`kubectl -n <namespace name> get pods`
+
+get specific pod:
+
+`kubectl -n <namespace name> get pods/<pod name>`
+
+## Services
+
+Services are logical abstractions that provide stable endpoint to access our pods. Because pods are ephemeral, their IP addresses change when being spun up and down. Due to this, we cannot directly connect to them, as the connection will be unreliable, to counteract this issue, we use services, where we can use a stable IP address and port to point to specific pods via the app name defined in the service.
+
+Pods running different applications can communicate with each other through services as long as each application is being exposed by a service.
+
+Services are defined through a yaml manifest that can be applied.
+
+Example of backend service:
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: tpm-backend
+spec:
+  type: ClusterIP
+  selector:
+    app: tpm-backend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+```
+
+In the example above `port` is the port on which the service itself listens for traffic, while `targetPort` is the port to which traffic is forwarded to the backend pods, hence the targetPort needs to be the same port that the application's deployment yaml is exposing.
+
+By default, the type of service is `ClusterIP` if no other type is set, this is an internal IP address that provides an IP address for other components within the cluster to connect to, but does not allow connection from anything external.
+
+### Apply service Yaml manifest
+
+`kubectl -n <namespace name> -f <path to service yaml file>`
+
+### list all services in namespace
+
+`kubectl -n <namespace name> get svc`
+
+running the above command will give us information for each service, including the clusterIP we can access our deployment on, as well as the port it exposes.
+
+### Applications communicating through services internally
+
+If you have two different deployments running different images and each deployment exposes a service, the pods managed by these deployments can communicate with each other using their internal Cluster IP addresses and exposed ports.
+
+Here's how it works:
+
+1.You have two Deployments, each deploying Pods running different container images.
+
+2.Each Deployment exposes a Service, which creates a stable endpoint for accessing the Pods.
+
+3.The Pods can communicate with each other using the DNS name of the Service, which resolves to the internal Cluster IP address of the Service. They can use the internal Cluster IP address and exposed ports to send and receive data.
+
+Note that because services are logical abstractions, they can communicate across namespaces without any issues.
