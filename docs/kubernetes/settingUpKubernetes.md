@@ -44,7 +44,7 @@ ConfigMaps are objects used to store non-confidential variables as key : value p
 
 ### Output configmaps as yaml
 
-`kubectl -n <namespace name> get cm <configmap name> -o yaml
+`kubectl -n <namespace name> get cm <configmap name> -o yaml`
 
 ## Secrets
 

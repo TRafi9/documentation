@@ -1,0 +1,1229 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://example.com/kubernetes/settingUpKubernetes/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../usefulCommands/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.12">
+    
+    
+      
+        <title>Setting Up K8s - Talha Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#kubernetes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Talha Docs" class="md-header__button md-logo" aria-label="Talha Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Talha Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Setting Up K8s
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Talha Docs" class="md-nav__button md-logo" aria-label="Talha Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Talha Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Kubernetes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Kubernetes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Setting Up K8s
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Setting Up K8s
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#components-of-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Components of Kubernetes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cluster
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Namespaces
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Namespaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a namespace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-all-namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get all namespaces
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configmaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConfigMaps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ConfigMaps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-configmaps-from-kubectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating ConfigMaps from kubectl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-out-configmaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      list out configmaps:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-configmaps-as-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output configmaps as yaml
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secrets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-secret-from-kubectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a secret from kubectl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-secrets-in-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting secrets in deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-all-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      List all secrets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-yaml-deployment-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy yaml deployment manifest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-deployed-pods" class="md-nav__link">
+    <span class="md-ellipsis">
+      View deployed pods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Services
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apply-service-yaml-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apply service Yaml manifest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-all-services-in-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      list all services in namespace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications-communicating-through-services-internally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications communicating through services internally
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingress
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingress-controllers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingress Controllers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingress Controllers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-nginx-ingress-controller-through-kubectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      deploy Nginx ingress controller through kubectl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-loadbalancer-ip-address-of-ingress-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get LoadBalancer IP address of ingress controller.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usefulCommands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Useful Extra Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kindCommands/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Kind Commands
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../debugging/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Debugging
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    The Productive Muslim
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            The Productive Muslim
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../release-notes.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#components-of-kubernetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Components of Kubernetes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cluster" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cluster
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Namespaces
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Namespaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a namespace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-all-namespaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get all namespaces
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configmaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      ConfigMaps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ConfigMaps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-configmaps-from-kubectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating ConfigMaps from kubectl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-out-configmaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      list out configmaps:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-configmaps-as-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Output configmaps as yaml
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Secrets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-secret-from-kubectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a secret from kubectl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-secrets-in-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting secrets in deployment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-all-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      List all secrets
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deployments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-yaml-deployment-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploy yaml deployment manifest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-deployed-pods" class="md-nav__link">
+    <span class="md-ellipsis">
+      View deployed pods
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Services
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apply-service-yaml-manifest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apply service Yaml manifest
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-all-services-in-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      list all services in namespace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications-communicating-through-services-internally" class="md-nav__link">
+    <span class="md-ellipsis">
+      Applications communicating through services internally
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingress
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingress-controllers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingress Controllers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingress Controllers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploy-nginx-ingress-controller-through-kubectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      deploy Nginx ingress controller through kubectl
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-loadbalancer-ip-address-of-ingress-controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get LoadBalancer IP address of ingress controller.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="kubernetes">Kubernetes</h1>
+<p>Kubernetes is an open source system used to deploy, scale and manage containerised applications anywhere.</p>
+<p>It is great for the following reasons:</p>
+<ol>
+<li>It abstracts away infrastruture, as it handles compute/network/storage on behalf of your workloads.</li>
+<li>It has built in service health monitoring, restarting containers if they are unhealthy or fail, making sure you have high availability.</li>
+<li>It has built in commands to do a lot of heavy lifting that goes into application management, using <code>kubectl</code>.</li>
+</ol>
+<h2 id="components-of-kubernetes">Components of Kubernetes</h2>
+<p><img alt="Cluster diagram" src="../images/cluster_diagram.png" /></p>
+<h2 id="cluster">Cluster</h2>
+<p>This is what all your kubernetes parts run in.</p>
+<h2 id="namespaces">Namespaces</h2>
+<p>Namespaces conceptually compartmentalise your resources into virtual clusters, that way you can allocate a set amount of resources to each namespace. For example, if you create a namespace for each department in your company, you can limit the amount of CPU/RAM that namespace has to distribute amongst the components inside it.</p>
+<p>Once you have a namespace, you can go ahead and add resources to it, such as variables using configMaps and secrets, or RAM/CPU set up from the resource part of the deployment manifest (the deployment.yaml).</p>
+<h3 id="creating-a-namespace">Creating a namespace</h3>
+<p><code>kubectl create namespace &lt;namespace name&gt;</code></p>
+<h3 id="get-all-namespaces">Get all namespaces</h3>
+<p><code>kubectl get ns</code></p>
+<h2 id="configmaps">ConfigMaps</h2>
+<p>ConfigMaps are objects used to store non-confidential variables as key : value pairs, pods can consume ConfigMaps as env variables/ comand line args or as config files in a volume. The advantage of ConfigMaps is that it allows you to decouple environment specific configurations from your application, making them easily portable and adjustable.</p>
+<h3 id="creating-configmaps-from-kubectl">Creating ConfigMaps from kubectl</h3>
+<p><code>kubectl -n &lt;namespace name&gt; create configmap &lt;configmap name&gt; --from-literal ENV_VAR_NAME=value</code></p>
+<h3 id="list-out-configmaps">list out configmaps:</h3>
+<p><code>kubectl -n &lt;namespace name&gt; get cm</code></p>
+<h3 id="output-configmaps-as-yaml">Output configmaps as yaml</h3>
+<p><code>kubectl -n &lt;namespace name&gt; get cm &lt;configmap name&gt; -o yaml</code></p>
+<h2 id="secrets">Secrets</h2>
+<p>Secrets are similar to configMaps except they are encrypted at rest. It is important to keep secrets separate from configMaps as you can apply rbac to give access to secrets to some people but not others.</p>
+<h3 id="creating-a-secret-from-kubectl">Creating a secret from kubectl</h3>
+<pre><code>kubectl -n &lt;namespace name&gt; create secret generic &lt;secret name&gt; \
+--from-literal SECRET_KEY=secretValue \
+--from-literal SECRET_KEY_2=secret_value_2
+</code></pre>
+<h3 id="setting-secrets-in-deployment">Setting secrets in deployment</h3>
+<p>Once you have created the secret, you can then pass the secret to your deployment yaml manifest like so:</p>
+<pre><code>    spec:
+      containers:
+        - name: tpm-backend
+          image: tpm-backend:0.0.2
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 80
+          env:
+          - name: SECRET_NAME_IN_CONTAINER
+            valueFrom:
+                secretKeyRef:
+                    name: SECRET_NAME
+                    key: SECRET_KEY
+</code></pre>
+<h3 id="list-all-secrets">List all secrets</h3>
+<p><code>kubectl -n &lt;namespace name&gt; get secret</code></p>
+<h2 id="deployments">Deployments</h2>
+<p>We can use kubectl to apply our deployment manifest files. Deployment manifests are used to describe the specification of how we want to deploy our applications. e.g. what container, how much replicas we want, and the amount of resources we want to allocate to each deployment.</p>
+<p>Example of deployment manifest yaml file:</p>
+<pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: mycontainer
+        image: myimage:tag
+        env:
+        - name: ENV_VARIABLE_FROM_CONFIGMAP
+          valueFrom:
+            configMapKeyRef:
+              name: myconfigmap
+              key: configKey
+        - name: ENV_VARIABLE_FROM_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: secretKey
+        ports:
+            - containerPort: 8080
+                protocol: TCP
+        resources:
+          requests:
+            memory: &quot;256Mi&quot;
+            cpu: &quot;100m&quot;
+          limits:
+            memory: &quot;512Mi&quot;
+            cpu: &quot;500m&quot;
+</code></pre>
+<h3 id="deploy-yaml-deployment-manifest">Deploy yaml deployment manifest</h3>
+<p><code>kubectl -n &lt;namespace name&gt; apply -f &lt;deployment.yaml file&gt;</code></p>
+<h3 id="view-deployed-pods">View deployed pods</h3>
+<p>Get all pod names:</p>
+<p><code>kubectl -n &lt;namespace name&gt; get pods</code></p>
+<p>get specific pod:</p>
+<p><code>kubectl -n &lt;namespace name&gt; get pods/&lt;pod name&gt;</code></p>
+<h2 id="services">Services</h2>
+<p>Services are logical abstractions that provide stable endpoint to access our pods. Because pods are ephemeral, their IP addresses change when being spun up and down. Due to this, we cannot directly connect to them, as the connection will be unreliable, to counteract this issue, we use services, where we can use a stable IP address and port to point to specific pods via the app name defined in the service.</p>
+<p>Pods running different applications can communicate with each other through services as long as each application is being exposed by a service.</p>
+<p>Services are defined through a yaml manifest that can be applied.</p>
+<p>Example of backend service:</p>
+<pre><code>apiVersion: v1
+kind: Service
+metadata:
+  name: tpm-backend
+spec:
+  type: ClusterIP
+  selector:
+    app: tpm-backend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+</code></pre>
+<p>In the example above <code>port</code> is the port on which the service itself listens for traffic, while <code>targetPort</code> is the port to which traffic is forwarded to the backend pods, hence the targetPort needs to be the same port that the application's deployment yaml is exposing.</p>
+<p>By default, the type of service is <code>ClusterIP</code> if no other type is set, this is an internal IP address that provides an IP address for other components within the cluster to connect to, but does not allow connection from anything external.</p>
+<h3 id="apply-service-yaml-manifest">Apply service Yaml manifest</h3>
+<p><code>kubectl -n &lt;namespace name&gt; -f &lt;path to service yaml file&gt;</code></p>
+<h3 id="list-all-services-in-namespace">list all services in namespace</h3>
+<p><code>kubectl -n &lt;namespace name&gt; get svc</code></p>
+<p>running the above command will give us information for each service, including the clusterIP we can access our deployment on, as well as the port it exposes.</p>
+<h3 id="applications-communicating-through-services-internally">Applications communicating through services internally</h3>
+<p>If you have two different deployments running different images and each deployment exposes a service, the pods managed by these deployments can communicate with each other using their internal Cluster IP addresses and exposed ports.</p>
+<p>Here's how it works:</p>
+<p>1.You have two Deployments, each deploying Pods running different container images.</p>
+<p>2.Each Deployment exposes a Service, which creates a stable endpoint for accessing the Pods.</p>
+<p>3.The Pods can communicate with each other using the DNS name of the Service, which resolves to the internal Cluster IP address of the Service. They can use the internal Cluster IP address and exposed ports to send and receive data.</p>
+<p>Note that because services are logical abstractions, they can communicate across namespaces without any issues.</p>
+<h2 id="ingress">Ingress</h2>
+<p>Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource. You can define an ingress API object through a yaml file.</p>
+<p>In an ingress API object you define the host that you expect traffic to be incoming from, and can define where you want to route that traffic, by defining which service you want to send it to, by giving it the name and port of the service.</p>
+<p>Example of ingress file:</p>
+<pre><code>apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: tpm-backend-ingress
+spec:
+  rules:
+    - host: &quot;foo-bar.com&quot; # //hostname for the application e.g. my website, need to map domain name to node IP address 4:45 on video
+      http:
+        paths:
+          - pathType: Prefix
+            path: &quot;/tpm&quot;
+            backend:
+              service:
+                name: tpm-backend
+                port:
+                  number: 8080 # this points to the service port we are exposing
+</code></pre>
+<p>Defining and deploying an ingress resource is not enough, we need an ingress controller to actually run the ingress resource.</p>
+<h2 id="ingress-controllers">Ingress Controllers</h2>
+<p>Ingress controllers are used to run your ingress resource you have deployed through a yaml configuration. Controllers are not defaultly installed in your cluster, so you must install one manually, there are multiple resources to choose from, but we will keep it simple and use nginx.</p>
+<h3 id="deploy-nginx-ingress-controller-through-kubectl">deploy Nginx ingress controller through kubectl</h3>
+<p>The first thing is deploying your ingress controller to manage ingress as per your ingress manifest.</p>
+<p><code>kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml</code></p>
+<p>The command above will create an nginx controller within its own namespace <code>ingress-nginx</code>.
+The ingress controller normally goes into its own namespace to make it easier to manage its resources and also separate its own resources so it has the capability to manage its own traffic.</p>
+<p>Even though the ingress controller is in its own namespace, by default it listens out for all the ingress resources deployed in our cluster across all namespaces.</p>
+<p>Once you have an ingress controller deployed, you can then route external network traffic to the ingress controller by routing traffic from your DNS to the ingress controllers <code>loadBalancer</code> IP address.</p>
+<h3 id="get-loadbalancer-ip-address-of-ingress-controller">Get LoadBalancer IP address of ingress controller.</h3>
+<p>This is the IP address you need to point external traffic to as an entry point to your cluster, i.e. you can set this IP address in the DNS settings of your cloudflare website.
+To find this IP address you can run the following command:</p>
+<p><code>kubectl -n &lt;ingress-controller-namespace&gt; get svc</code></p>
+<p>Note that this external IP address will be <code>pending</code> in the kind cluster, this is because LoadBalancer services are designed to use the load-balancer infrastructure your cloud provider offers, and since we aren't running in the cloud, there is none.</p>
+<p>This also means that when you apply your ingress manifest, there will be no address assigned, as the loadBalancer's external IP address will be the one assigned to your ingress.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
+      
+    
+  </body>
+</html>
