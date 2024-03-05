@@ -1,8 +1,9 @@
+
 You will need to add your service account / application default credentials to kubernetes if you want to connect and run things such as cloud sql proxy.
 
 1. Download your `application_default_credentials.json` file from GCP.
 
-2. create a secret that holds the contents of your credentials file.
+2. Create a secret that holds the contents of your credentials file.
    `kubectl create secret -n <namespace name> generic <secret name> --fron-file=<key name>=<path to application_default_credentials.json>`
    `kubectl create secret generic cloudsql-credentials --from-file=service_account.json=application_default_credentials.json`
 
