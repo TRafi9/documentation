@@ -19,7 +19,7 @@ e.g.
 1. rebuild your image with a new tag e.g.
 
 ```diff
--    docker build -t tpm-backend:0.0.2
+-    docker build -t tpm-backend:0.0.1
 +    docker build -t tpm-backend:0.0.2
 ```
 
