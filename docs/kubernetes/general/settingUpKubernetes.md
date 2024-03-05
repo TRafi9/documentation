@@ -10,7 +10,7 @@ It is great for the following reasons:
 
 ## Components of Kubernetes
 
-![Cluster diagram](images/cluster_diagram.png)
+![Cluster diagram](../images/cluster_diagram.png)
 
 ## Cluster
 

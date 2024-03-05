@@ -3,10 +3,13 @@ site_url: https://example.com/
 nav:
   - Home: index.md
   - Kubernetes:
-      - Setting Up K8s: kubernetes/settingUpKubernetes.md
-      - Useful Extra Commands: kubernetes/usefulCommands.md
-      - Kind Commands: kubernetes/kindCommands.md
+      - General:
+          - Mapping API calls to Service backend: kubernetes/general/mappingAPICallsToServices.md
+          - Setting Up K8s: kubernetes/general/settingUpKubernetes.md
+          - Useful Extra Commands: kubernetes/general/usefulCommands.md
+          - Debugging: kubernetes/general/debugging.md
       - Google:
           - Mounting application default credentials: kubernetes/google/mountingApplicationDefaultCredentials.md
-      - Debugging: kubernetes/debugging.md
+      - Kind:
+          - Kind Commands: kubernetes/kind/kindCommands.md
 theme: material
