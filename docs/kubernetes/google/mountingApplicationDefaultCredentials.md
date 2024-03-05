@@ -1,5 +1,3 @@
-## Adding application default credentials to kubernetes
-
 You will need to add your service account / application default credentials to kubernetes if you want to connect and run things such as cloud sql proxy.
 
 1. Download your `application_default_credentials.json` file from GCP.
