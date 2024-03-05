@@ -48,3 +48,7 @@ containers:
 
 -c stands for container
 `kubectl logs -f pod/<pod name> -c <container name that is set in deployment.yaml>`
+
+### Get continuous logs of a running container in a pod
+
+`kubectl logs -f <pod name> -c <container name>`
