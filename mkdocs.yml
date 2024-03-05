@@ -9,5 +9,4 @@ nav:
       - "Google":
           - "Mounting application default credentials": "kubernetes/google/mountingApplicationDefaultCredentials.md"
       - "Debugging": "kubernetes/debugging.md"
-  - The Productive Muslim:
 theme: material
