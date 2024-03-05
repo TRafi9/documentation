@@ -29,7 +29,7 @@ Example
 
 2.  `kind load docker-image tpm-frontend:0.0.1 -n kind`
 
-3. 
+3.
 
 ```diff
 containers:
@@ -38,3 +38,5 @@ containers:
 +            image: tpm-backend:0.0.2
           imagePullPolicy: Never
 ```
+
+## section on how to run nginx on kind cluster to get external IP address
