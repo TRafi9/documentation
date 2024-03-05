@@ -10,6 +10,4 @@ nav:
           - "Mounting application default credentials": "kubernetes/google/mountingApplicationDefaultCredentials.md"
       - "Debugging": "kubernetes/debugging.md"
   - The Productive Muslim:
-      - "License": "license.md"
-      - "Release Notes": "release-notes.md"
 theme: material
