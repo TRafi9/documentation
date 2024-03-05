@@ -1,12 +1,12 @@
 site_name: Talha Docs
 site_url: https://example.com/
 nav:
-  - Home: "index.md"
-  - "Kubernetes":
-      - "Setting Up K8s": "kubernetes/settingUpKubernetes.md"
-      - "Useful Extra Commands": "kubernetes/usefulCommands.md"
-      - "Kind Commands": "kubernetes/kindCommands.md"
-      - "Google":
-          - "Mounting application default credentials": "kubernetes/google/mountingApplicationDefaultCredentials.md"
-      - "Debugging": "kubernetes/debugging.md"
+  - Home: index.md
+  - Kubernetes:
+      - Setting Up K8s: kubernetes/settingUpKubernetes.md
+      - Useful Extra Commands: kubernetes/usefulCommands.md
+      - Kind Commands: kubernetes/kindCommands.md
+      - Google:
+          - Mounting application default credentials: kubernetes/google/mountingApplicationDefaultCredentials.md
+      - Debugging: kubernetes/debugging.md
 theme: material
