@@ -6,6 +6,8 @@ nav:
       - "Setting Up K8s": "kubernetes/settingUpKubernetes.md"
       - "Useful Extra Commands": "kubernetes/usefulCommands.md"
       - "Kind Commands": "kubernetes/kindCommands.md"
+      - "Google":
+          - "Mounting application default credentials": "kubernetes/google/mountingApplicationDefaultCredentials.md"
       - "Debugging": "kubernetes/debugging.md"
   - The Productive Muslim:
       - "License": "license.md"

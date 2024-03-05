@@ -13,8 +13,7 @@ You will need to add your service account / application default credentials to k
 4. Mount the volume to the container within the deployment yaml file, do this using `volumeMounts` and define a path where you want it mounted within the container using `mountPath` (this path will be created if it doesn't already exist). Define the secret you are mounting using `name` which should be the same name as the secret that you set under `volumes`.
 
 5. For cloudsql you can pass the instance name and mounted credentials file under `args`. When secrets are mounted to containers, the key:value pairs are mounted, so you can directly pass them as the following:
-
-`--credentials-file=/<volume mount path>/<some key in secret>`
+   `--credentials-file=/<volume mount path>/<some key in secret>`
 
 #### Example
 
