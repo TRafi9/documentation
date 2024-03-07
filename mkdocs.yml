@@ -12,4 +12,8 @@ nav:
           - Mounting application default credentials: kubernetes/google/mountingApplicationDefaultCredentials.md
       - Kind:
           - Kind Commands: kubernetes/kind/kindCommands.md
+  - My Projects:
+      - The Productive Muslim:
+          - What I've Learned:
+              - Cookies: myProjects/theProductiveMuslim/whatIveLearned/cookies.md
 theme: material
