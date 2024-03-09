@@ -39,4 +39,3 @@ containers:
           imagePullPolicy: Never
 ```
 
-## section on how to run nginx on kind cluster to get external IP address

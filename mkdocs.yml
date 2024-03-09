@@ -12,6 +12,7 @@ nav:
           - Mounting application default credentials: kubernetes/google/mountingApplicationDefaultCredentials.md
       - Kind:
           - Kind Commands: kubernetes/kind/kindCommands.md
+          - Ingress Setup For Local Testing: kubernetes/kind/ingressOnKind.md
   - My Projects:
       - The Productive Muslim:
           - What I've Learned:
