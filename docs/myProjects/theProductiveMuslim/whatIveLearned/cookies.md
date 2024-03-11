@@ -70,8 +70,7 @@ Adding `credentials:"include"` flag in the API request. You need to set `credent
 
 ## Receiving and setting cookie from serverside in NextJs Example
 
-```
-
+```go
       const response = await fetch("http://localhost:8080/api/v1/login", {
         method: "POST",
         headers: {
@@ -98,5 +97,4 @@ Adding `credentials:"include"` flag in the API request. You need to set `credent
         const errorResponse = await response.json();
         res.status(500).json(errorResponse);
       }
-
 ```
