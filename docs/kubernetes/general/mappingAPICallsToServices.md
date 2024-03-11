@@ -29,7 +29,6 @@ e.g. normally I call my backend from `localhost:8080/api/v1/something, but my ba
 ```diff
 - http://localhost:8080/api/v1/createUser
 + http://$TPM_BACKEND_SERVICE:$TPM_BACKEND_SERVICE_PORT/api/v1/createUser
-
 ```
 
 Note that calls need to be on server side for this to work, aka the call done by the frontend needs to execute on serverside.
