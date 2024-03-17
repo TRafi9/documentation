@@ -6,6 +6,8 @@ nav:
       - General:
           - Mapping API calls to Service backend: kubernetes/general/mappingAPICallsToServices.md
           - Setting Up K8s: kubernetes/general/settingUpKubernetes.md
+          - Switching Namespaces: kubernetes/general/switchingNamespacesKubectl.md
+          - Switching Workspace Cluster: kubernetes/general/switchingClustersKubectl.md
           - Useful Extra Commands: kubernetes/general/usefulCommands.md
           - Debugging: kubernetes/general/debugging.md
       - Google:
