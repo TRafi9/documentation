@@ -3,11 +3,15 @@ site_url: https://example.com/
 nav:
   - Home: index.md
   - Kubernetes:
+      - Basics:
+          - Setting Up K8s: kubernetes/basics/settingUpKubernetes.md
+          - Switching Namespaces: kubernetes/basics/switchingNamespacesKubectl.md
+          - Switching Workspace Cluster: kubernetes/basics/switchingClustersKubectl.md
+
       - General:
+          - Finding ENV variables in pods and pulling them into containers: kubernetes/general/envVarsInPodsForContainers.md
           - Mapping API calls to Service backend: kubernetes/general/mappingAPICallsToServices.md
-          - Setting Up K8s: kubernetes/general/settingUpKubernetes.md
-          - Switching Namespaces: kubernetes/general/switchingNamespacesKubectl.md
-          - Switching Workspace Cluster: kubernetes/general/switchingClustersKubectl.md
+
           - Useful Extra Commands: kubernetes/general/usefulCommands.md
           - Debugging: kubernetes/general/debugging.md
       - Google:
