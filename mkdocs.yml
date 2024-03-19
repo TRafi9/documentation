@@ -25,8 +25,11 @@ nav:
           - Ingress Setup For Local Testing: kubernetes/kind/ingressOnKind.md
   - My Projects:
       - The Productive Muslim:
-          - What I've Learned:
-              - Cookies: myProjects/theProductiveMuslim/whatIveLearned/cookies.md
+          - Overview: myProjects/theProductiveMuslim/overview.md
+          - Why I Made The App (Learning): myProjects/theProductiveMuslim/whyIchoseToMakeIt.md
+          - Skills Used In Project:
+              - Go (Golang): myProjects/theProductiveMuslim/skillsUsedInProject/golang.md
+              - Cookies: myProjects/theProductiveMuslim/skillsUsedInProject/cookies.md
 theme: material
 markdown_extensions:
   - pymdownx.highlight:
