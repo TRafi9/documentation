@@ -14,8 +14,12 @@ nav:
 
           - Useful Extra Commands: kubernetes/general/usefulCommands.md
           - Debugging: kubernetes/general/debugging.md
+      - Cloudflare:
+          - Connecting Ingress To Cloudflare Domain: kubernetes/cloudflare/connectingIngressToCloudflareDomain.md
       - Google:
           - Mounting application default credentials: kubernetes/google/mountingApplicationDefaultCredentials.md
+      - Digital Ocean:
+          - Authenticating and Pushing via Docker: kubernetes/digitalOcean/pushingToDORegistry.md
       - Kind:
           - Kind Commands: kubernetes/kind/kindCommands.md
           - Ingress Setup For Local Testing: kubernetes/kind/ingressOnKind.md
