@@ -53,7 +53,10 @@ services:
 
 ### Locally
 
-For local testing, docker images were passed using env variables using the `-e` flag to pass env variables when the docker run command was executed, I used this to keep secrets outside my code base and pass them into the scripts.
+There were 2 ways I was passing env vars in for local testing:
+
+1. Mounting env vars using the `env_file` flag in my docker-compose file
+2. When running docker images independantly, docker images were passed using env variables using the `-e` flag to pass env variables when the docker run command was executed, I used this to keep secrets outside my code base and pass them into the scripts.
 
 ### In Production
 
