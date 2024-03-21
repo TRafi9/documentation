@@ -18,8 +18,8 @@ then use external Ip and port exposed by service to see frontend: 159.65.212.242
 - add the secret to the frontend ingress yaml manifest & make sure to add it under tls heading too.
 - map the ports using an ingress file to point to your port exposed by loadbalancer e.g. 443
 
-
 # finish off things learned
+
 - setting up postgres SQL instances in GCP and connecting through cloud proxy
 - setting up redis NOSQL DB to cache and persist data to reduce external API calls
 - calling from external API and parsing data into structs
@@ -35,9 +35,14 @@ then use external Ip and port exposed by service to see frontend: 159.65.212.242
 - blocking user login if user has not verified email
 - how to send error responses from the backend and display those responses on the frontend for user
 
+- kubernetes
+- JWT tokens
+- login system
+- crud calls in Go
+- password encryption
 
 - CURRENTLY - learning implementing JWT Auth and storing JWT securely in cookies - passing back and forth through authorization header
-what this project demonstrates
+  what this project demonstrates
 
 - understanding of writing sql statements for postgres
 
