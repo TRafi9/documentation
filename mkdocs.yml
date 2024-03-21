@@ -31,7 +31,7 @@ nav:
               - Go (Golang): myProjects/theProductiveMuslim/skillsUsedInProject/golang.md
               - Docker: myProjects/theProductiveMuslim/skillsUsedInProject/docker.md
               - Cookies: myProjects/theProductiveMuslim/skillsUsedInProject/cookies.md
-              - JWTL myProjects/theProductiveMuslim/skillsUsedInProject/JWT.md
+              - JWT: myProjects/theProductiveMuslim/skillsUsedInProject/JWT.md
 
   - Things I need to learn/do: needToLearn.md
 theme: material
