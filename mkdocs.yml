@@ -29,7 +29,9 @@ nav:
           - Why I Made The App (Learning): myProjects/theProductiveMuslim/whyIchoseToMakeIt.md
           - Skills Used In Project:
               - Go (Golang): myProjects/theProductiveMuslim/skillsUsedInProject/golang.md
+              - Docker: myProjects/theProductiveMuslim/skillsUsedInProject/docker.md
               - Cookies: myProjects/theProductiveMuslim/skillsUsedInProject/cookies.md
+
   - Things I need to learn/do: needToLearn.md
 theme: material
 markdown_extensions:
