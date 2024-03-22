@@ -5,7 +5,7 @@ nav:
   - Kubernetes:
       - Basics:
           - Setting Up K8s: kubernetes/basics/settingUpKubernetes.md
-          - Switching Namespaces: kubernetes/basics/switchingNamespacesKubectl.md
+          # - Switching Namespaces: kubernetes/basics/switchingNamespacesKubectl.md
           - Switching Workspace Cluster: kubernetes/basics/switchingClustersKubectl.md
 
       - General:
