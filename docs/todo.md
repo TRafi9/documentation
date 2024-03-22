@@ -5,8 +5,6 @@ through the following command:
 apply frontend service
 then use external Ip and port exposed by service to see frontend: 159.65.212.242:3000
 
-![alt text](image-6.png)
-
 # configuring cloudflare domain to link up to kubernetes
 
 - have the loadbalancer public IP address and expose a port for main traffic, e.g. 443 for standard https traffic
@@ -36,10 +34,10 @@ then use external Ip and port exposed by service to see frontend: 159.65.212.242
 - how to send error responses from the backend and display those responses on the frontend for user
 
 - kubernetes
-- JWT tokens
-- login system
-- crud calls in Go
-- password encryption
+- JWT tokens - done
+- login system - done
+- crud calls in Go - done
+- password encryption - not done
 
 - CURRENTLY - learning implementing JWT Auth and storing JWT securely in cookies - passing back and forth through authorization header
   what this project demonstrates
