@@ -32,7 +32,10 @@ nav:
               - Docker: myProjects/theProductiveMuslim/skillsUsedInProject/docker.md
               - Cookies: myProjects/theProductiveMuslim/skillsUsedInProject/cookies.md
               - JWT: myProjects/theProductiveMuslim/skillsUsedInProject/JWT.md
+              - Password Encryption: myProjects/theProductiveMuslim/skillsUsedInProject/passwordEncryption.md
               - Login System: myProjects/theProductiveMuslim/skillsUsedInProject/loginSystem.md
+              - Typescript: myProjects/theProductiveMuslim/skillsUsedInProject/typescript.md
+              - NextJS: myProjects/theProductiveMuslim/skillsUsedInProject/nextJs.md
 
   - Things I need to learn/do: needToLearn.md
 theme: material
