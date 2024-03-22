@@ -1,6 +1,7 @@
 # My Login system
 
-One of the key things when creating the web app was designing a login system. I used a combination of CRUD calls to my DB in order to achieve this, here's how it worked.
+One of the key things when creating the web app was designing a login system, which also including sanitising user input on the frontend to make sure valid email addresses & strong passwords were being used. In the backend, it was pretty much 90% CRUD calls to database tables. Heres how it worked:
+![alt text](../images/login-page.png)
 
 ## 1. User Registering
 
