@@ -32,6 +32,7 @@ nav:
               - Docker: myProjects/theProductiveMuslim/skillsUsedInProject/docker.md
               - Cookies: myProjects/theProductiveMuslim/skillsUsedInProject/cookies.md
               - JWT: myProjects/theProductiveMuslim/skillsUsedInProject/JWT.md
+              - Login System: myProjects/theProductiveMuslim/skillsUsedInProject/loginSystem.md
 
   - Things I need to learn/do: needToLearn.md
 theme: material
