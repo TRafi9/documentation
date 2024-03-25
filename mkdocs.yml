@@ -29,6 +29,7 @@ nav:
           - Why I Made The App (Learning): myProjects/theProductiveMuslim/whyIchoseToMakeIt.md
           - Skills Used In Project:
               - Go (Golang): myProjects/theProductiveMuslim/skillsUsedInProject/golang.md
+              - Kubernetes: myProjects/theProductiveMuslim/skillsUsedInProject/kubernetes.md
               - Docker: myProjects/theProductiveMuslim/skillsUsedInProject/docker.md
               - Cookies: myProjects/theProductiveMuslim/skillsUsedInProject/cookies.md
               - JWT: myProjects/theProductiveMuslim/skillsUsedInProject/JWT.md

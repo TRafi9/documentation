@@ -18,13 +18,6 @@ then use external Ip and port exposed by service to see frontend: 159.65.212.242
 
 # finish off things learned
 
-- setting up postgres SQL instances in GCP and connecting through cloud proxy
-- setting up redis NOSQL DB to cache and persist data to reduce external API calls
-- calling from external API and parsing data into structs
-
-- Querying data from DB's and parsing into structs
-- echo handler functions for POST/GET calls
-- creating post/get requests in tsx/js to call backend
 
 - storing secret credentials outside of code and calling through env vars
 - setting up user login experience which includes parsing form data coming from frontend, uploading to DB, verifying emails and authenticating user during login
@@ -33,11 +26,11 @@ then use external Ip and port exposed by service to see frontend: 159.65.212.242
 - blocking user login if user has not verified email
 - how to send error responses from the backend and display those responses on the frontend for user
 
-- kubernetes
+- kubernetes - done
 - JWT tokens - done
 - login system - done
 - crud calls in Go - done
-- password encryption - not done
+- password encryption - done
 
 - CURRENTLY - learning implementing JWT Auth and storing JWT securely in cookies - passing back and forth through authorization header
   what this project demonstrates
