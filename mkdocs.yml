@@ -16,6 +16,7 @@ nav:
           - Debugging: kubernetes/general/debugging.md
       - Cloudflare:
           - Connecting Ingress To Cloudflare Domain: kubernetes/cloudflare/connectingIngressToCloudflareDomain.md
+          - Nginx Certification Configuration: kubernetes/cloudflare/nginxCertificates.md
       - Google:
           - Mounting application default credentials: kubernetes/google/mountingApplicationDefaultCredentials.md
       - Digital Ocean:
