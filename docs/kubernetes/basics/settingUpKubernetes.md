@@ -251,4 +251,4 @@ To find this IP address you can run the following command:
 
 Note that this external IP address will be `pending` in the kind cluster, this is because LoadBalancer services are designed to use the load-balancer infrastructure your cloud provider offers, and since we aren't running in the cloud, there is none.
 
-This also means that when you apply your ingress manifest, there will be no address assigned, as the loadBalancer's external IP address will be the one assigned to your ingress.
+This also means that when you apply your ingress manifest, there will be no address assigned, as the loadBalancer's external IP address will be the one assigned to your ingress. Once you have an ingress controller running that exposes a public IP address, you use that IP address to route traffic, e.g. point the DNS record to the ingress controller's IP address when creating a DNS record on cloudflare.
