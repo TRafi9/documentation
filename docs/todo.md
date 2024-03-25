@@ -21,8 +21,7 @@ then use external Ip and port exposed by service to see frontend: 159.65.212.242
 
 - storing secret credentials outside of code and calling through env vars
 - setting up user login experience which includes parsing form data coming from frontend, uploading to DB, verifying emails and authenticating user during login
-- sometimes setting a var to type any in tsx is useful, e.g. allowing users to sending strings instead of ints for verification, this allows the backend to first check
-  if user string can be converted to an int before wasting more resources trying to query the db with a string, this can be further improved by checking length of int etc
+
 - blocking user login if user has not verified email
 - how to send error responses from the backend and display those responses on the frontend for user
 

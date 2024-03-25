@@ -41,4 +41,5 @@ Theres a lot of different types of logic within the handler functions, here are 
 3. Setting Cookies in the browser
 4. Getting/Posting data to Redis database/SQL postgres DB
 5. Calling 3rd party APIs
-6. Automatically sending emails from smtp Go package.
+6. Automatically sending emails using the smtp Go package.
+7. Error handling and sending correct API status codes/ data in body of API requests to frontend
