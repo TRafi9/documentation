@@ -38,6 +38,8 @@ nav:
               - Login System: myProjects/theProductiveMuslim/skillsUsedInProject/loginSystem.md
               - Typescript: myProjects/theProductiveMuslim/skillsUsedInProject/typescript.md
               - NextJS: myProjects/theProductiveMuslim/skillsUsedInProject/nextJs.md
+  - Go Notes:
+      - Pointers: goNotes/pointers.md
 
   - Things I need to learn/do: needToLearn.md
 theme: material
