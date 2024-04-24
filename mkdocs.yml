@@ -40,6 +40,9 @@ nav:
               - NextJS: myProjects/theProductiveMuslim/skillsUsedInProject/nextJs.md
   - Go Notes:
       - Pointers: goNotes/pointers.md
+      - HTTP:
+          - Response Writers: goNotes/HTTP/responseWriters.md
+          - Requests: goNotes/HTTP/requests.md
 
   - Things I need to learn/do: needToLearn.md
 theme: material
