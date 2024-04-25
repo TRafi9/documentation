@@ -43,6 +43,7 @@ nav:
       - HTTP:
           - Response Writers: goNotes/HTTP/responseWriters.md
           - Requests: goNotes/HTTP/requests.md
+          - Serve Mux Path Types: goNotes/HTTP/serveMuxFixedPaths.md
 
   - Things I need to learn/do: needToLearn.md
 theme: material
