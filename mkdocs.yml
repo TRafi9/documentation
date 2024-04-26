@@ -2,6 +2,8 @@ site_name: Talha Docs
 site_url: https://example.com/
 nav:
   - Home: index.md
+  - Data structures & Algorithms:
+      - Binary Search: DataStructures_Algorithms/Binary_search.md
   - Kubernetes:
       - Basics:
           - Setting Up K8s: kubernetes/basics/settingUpKubernetes.md
