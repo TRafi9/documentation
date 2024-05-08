@@ -47,6 +47,8 @@ nav:
           - Requests: goNotes/HTTP/requests.md
           - Serve Mux Path Types: goNotes/HTTP/serveMuxFixedPaths.md
           - Automatic Headers & Octet-Stream: goNotes/HTTP/octet-stream.md
+  - Kafka Notes:
+      - Notes: kafka/notes.md
 
   - Things I need to learn/do: needToLearn.md
 theme: material
