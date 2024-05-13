@@ -50,7 +50,7 @@ nav:
   - Kafka Notes:
       - Notes: kafka/notes.md
   - Blockchain:
-      - Basics: blockchainBasics.md
+      - Basics: blockchain/blockchainBasics.md
 
   - Things I need to learn/do: needToLearn.md
 theme: material
