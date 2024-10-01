@@ -51,6 +51,8 @@ nav:
       - Notes: kafka/notes.md
   - Blockchain:
       - Basics: blockchain/blockchainBasics.md
+  - C#:
+      - Instances & Classes: c#Notes/instances_and_classes.md
 
   - Things I need to learn/do: needToLearn.md
 theme: material
