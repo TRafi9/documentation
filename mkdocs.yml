@@ -52,7 +52,7 @@ nav:
   - Blockchain:
       - Basics: blockchain/blockchainBasics.md
   - C#:
-      - Instances & Classes: c#Notes/instances_and_classes.md
+      - Interfaces & Classes: c#Notes/interfaces_and_classes.md
 
   - Things I need to learn/do: needToLearn.md
 theme: material
