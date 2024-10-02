@@ -53,7 +53,7 @@ nav:
       - Basics: blockchain/blockchainBasics.md
   - C#:
       - Interfaces & Classes: csharp/Interfaces_and_classes.md
-
+      - Dependency Injection: csharp/dependency_injection.md
   - Things I need to learn/do: needToLearn.md
 theme: material
 markdown_extensions:
