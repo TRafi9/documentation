@@ -25,3 +25,21 @@
 - 1 year of maintenance support after the subsequent LTS release.
 
 This ensures that businesses and developers can rely on stable and secure releases for extended periods.
+
+## 5. Common Type System and Common Language Specification
+
+.NET uses a **Common Type System (CTS)** and **Common Language Specification (CLS)** to ensure compatibility across languages.
+
+- **Common Type System (CTS)** defines the types that .NET can support, but not all languages may support all types within this system.
+- **Common Language Specification (CLS)** specifies which types within the CTS are supported by all .NET languages. 
+
+If your application restricts itself to using only the types defined by the CLS, your code will be compatible and can be compiled into CIL even when integrating multiple languages. This provides seamless integration and ensures cross-language compatibility in .NET applications.
+
+## 6. Managed vs Unmanaged Code
+
+Code created in C# that is **CLS-compliant** and targets the .NET framework is referred to as **managed code**. Managed code has several benefits:
+
+- It can run on the .NET framework.
+- It is platform-agnostic: code can be created on one operating system (e.g., Windows) and deployed on another (e.g., iOS) seamlessly.
+
+If the code does not comply with the CLS and therefore does not target the .NET framework, it is known as **unmanaged code**. Although unmanaged code can still be accessed and executed, it is locked to a specific development and deployment environment, making it less flexible compared to managed code.
